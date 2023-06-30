@@ -1,0 +1,9 @@
+//* LOCATION
+// home
+export 'location/home/home_page.dart';
+export 'location/home/widgets/widgets.dart';
+// search
+export 'location/search/destination_controller.dart';
+export 'location/search/destination_page.dart';
+export 'location/search/destination_state.dart';
+export 'location/search/widgets/widgets.dart';

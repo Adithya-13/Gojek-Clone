@@ -1,0 +1,3 @@
+class DestinationState {
+  const DestinationState();
+}

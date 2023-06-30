@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^1.1.6
   collection: ^1.16.0
   flutter_dotenv: ^5.1.0
+  simple_ripple_animation: ^0.0.7
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/fonts/
+    - assets/svgs/
     - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
