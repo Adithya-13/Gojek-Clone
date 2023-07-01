@@ -46,6 +46,7 @@ dependencies:
   collection: ^1.16.0
   flutter_dotenv: ^5.1.0
   simple_ripple_animation: ^0.0.7
+  flutter_google_places_sdk: ^0.3.2+9
 
 dev_dependencies:
   flutter_test:

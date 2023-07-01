@@ -12,12 +12,12 @@ class HomePage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-            top: 0,
+            top: -52,
             left: 0,
             right: 0,
             child: Assets.svgs.bgHome.svg(
                 fit: BoxFit.fitHeight,
-                height: context.screenHeightPercentage(0.5)),
+                height: context.screenHeightPercentage(0.6)),
           ),
           const Positioned.fill(
             child: HomeContentSection(),

@@ -8,6 +8,7 @@ class InputFormWidget extends StatelessWidget {
   final Function(String value)? onChanged;
   final String? errorText;
   final String? Function(String?)? validator;
+  final FocusNode? focusNode;
 
   const InputFormWidget({
     super.key,
@@ -15,6 +16,7 @@ class InputFormWidget extends StatelessWidget {
     required this.hintText,
     this.onChanged,
     this.errorText,
+    this.focusNode,
     this.validator,
   });
 
@@ -23,7 +25,7 @@ class InputFormWidget extends StatelessWidget {
     return TextFormField(
       controller: controller,
       onChanged: onChanged,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      focusNode: focusNode,
       validator: validator,
       decoration: InputDecoration(
         errorText: errorText,

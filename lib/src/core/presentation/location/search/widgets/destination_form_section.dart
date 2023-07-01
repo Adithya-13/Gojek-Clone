@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
+import 'package:gojek_clone/src/core/core.dart';
 import 'package:gojek_clone/src/widgets/widgets.dart';
 
-class DestinationFormSection extends StatelessWidget {
+class DestinationFormSection extends ConsumerWidget {
   const DestinationFormSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.read(destinationControllerProvider.notifier);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
@@ -39,7 +42,7 @@ class DestinationFormSection extends StatelessWidget {
               ),
               Gap.h4,
               const CircleDotWidget(
-                withAnimation: false, //i change into false due to performance
+                withAnimation: true,
               ),
             ],
           ),
@@ -49,8 +52,10 @@ class DestinationFormSection extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 InputFormWidget(
-                  controller: TextEditingController(),
+                  controller: controller.pickupController,
                   hintText: 'Cari lokasi jemput',
+                  onChanged: controller.onChanged,
+                  focusNode: controller.pickupFocusNode,
                 ),
                 Gap.h4,
                 const Divider(
@@ -62,8 +67,10 @@ class DestinationFormSection extends StatelessWidget {
                 ),
                 Gap.h4,
                 InputFormWidget(
-                  controller: TextEditingController(),
-                  hintText: 'Cari lokasi jemput',
+                  controller: controller.destinationController,
+                  hintText: 'Cari lokasi tujuan',
+                  onChanged: controller.onChanged,
+                  focusNode: controller.destinationFocusNode,
                 ),
               ],
             ),
