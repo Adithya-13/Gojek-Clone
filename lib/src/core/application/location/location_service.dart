@@ -7,8 +7,9 @@ class LocationService {
 
   LocationService(this.locationRepository);
 
-  Future<List<AutocompletePrediction>> autoCompleteSearch(String query) =>
-      locationRepository.autoCompleteSearch(query);
+  Future<List<AutocompletePrediction>> autoCompleteSearch(
+          {required String query}) =>
+      locationRepository.autoCompleteSearch(query: query);
 }
 
 final locationServiceProvider = Provider<LocationService>((ref) {

@@ -29,13 +29,13 @@ class DestinationController extends StateNotifier<DestinationState> {
     });
   }
 
-  Future<void> search(String query) async {
+  void search(String query) async {
     state = state.copyWith(
       predictionListValue: const AsyncLoading(),
     );
 
     try {
-      final result = await locationService.autoCompleteSearch(query);
+      final result = await locationService.autoCompleteSearch(query: query);
       state = state.copyWith(
         predictionList: result,
         predictionListValue: AsyncData(result),
@@ -76,8 +76,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     pickupController.dispose();
     destinationController.dispose();
     _debounce?.cancel();
-    destinationFocusNode.dispose();
     pickupFocusNode.dispose();
+    destinationFocusNode.dispose();
     super.dispose();
   }
 }
