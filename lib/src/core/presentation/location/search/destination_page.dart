@@ -34,7 +34,6 @@ class DestinationPage extends StatelessWidget {
               thickness: 1,
               height: 0,
             ),
-            // const EmptyStateDestinationListSection(),
             const LocationListSection(),
           ],
         ),

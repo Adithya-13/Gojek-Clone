@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/shared/extensions/extensions.dart';
@@ -8,15 +9,17 @@ class InputFormWidget extends StatelessWidget {
   final Function(String value)? onChanged;
   final String? errorText;
   final String? Function(String?)? validator;
+  final FocusNode? focusNode;
 
   const InputFormWidget({
-    super.key,
+    Key? key,
     required this.controller,
     required this.hintText,
     this.onChanged,
     this.errorText,
     this.validator,
-  });
+    this.focusNode,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class InputFormWidget extends StatelessWidget {
       onChanged: onChanged,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: validator,
+      focusNode: focusNode,
       decoration: InputDecoration(
         errorText: errorText,
         hintText: hintText,
