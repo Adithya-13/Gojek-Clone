@@ -3,7 +3,7 @@ import 'package:flutter_google_places_sdk/flutter_google_places_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/core/core.dart';
-import 'package:gojek_clone/src/shared/extensions/extensions.dart';
+import 'package:gojek_clone/src/shared/shared.dart';
 
 class LocationCardWidget extends ConsumerWidget {
   final AutocompletePrediction prediction;
@@ -21,6 +21,7 @@ class LocationCardWidget extends ConsumerWidget {
       },
       child: Container(
         padding: EdgeInsets.all(SizeApp.h16),
+        color: ColorApp.white,
         child: Row(
           children: [
             Column(
