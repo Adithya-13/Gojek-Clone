@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gojek_clone/gen/assets.gen.dart';
 import 'package:gojek_clone/src/core/core.dart';
-import 'package:gojek_clone/src/shared/extensions/extensions.dart';
+import 'package:gojek_clone/src/shared/shared.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
