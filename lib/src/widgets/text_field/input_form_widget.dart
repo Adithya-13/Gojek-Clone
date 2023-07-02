@@ -17,7 +17,6 @@ class InputFormWidget extends StatelessWidget {
     required this.hintText,
     this.onChanged,
     this.errorText,
-    this.focusNode,
     this.validator,
     this.focusNode,
   }) : super(key: key);
@@ -29,7 +28,6 @@ class InputFormWidget extends StatelessWidget {
       onChanged: onChanged,
       focusNode: focusNode,
       validator: validator,
-      focusNode: focusNode,
       decoration: InputDecoration(
         errorText: errorText,
         hintText: hintText,
