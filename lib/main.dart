@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gojek_clone/gen/fonts.gen.dart';
@@ -7,9 +7,8 @@ import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/routes/routes.dart';
 
 void main() async {
-  /// [INFO] Init hive local db
-  WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  WidgetsFlutterBinding.ensureInitialized(); // Required by FlutterConfig
+  await FlutterConfig.loadEnvVariables();
 
   runApp(const ProviderScope(child: MyApp()));
 }

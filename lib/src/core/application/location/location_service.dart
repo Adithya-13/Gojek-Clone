@@ -9,6 +9,9 @@ class LocationService {
 
   Future<List<AutocompletePrediction>> autoCompleteSearch(String query) =>
       locationRepository.autoCompleteSearch(query);
+
+  Future<Place?> fetchPlace(String placeId) =>
+      locationRepository.fetchPlace(placeId);
 }
 
 final locationServiceProvider = Provider<LocationService>((ref) {

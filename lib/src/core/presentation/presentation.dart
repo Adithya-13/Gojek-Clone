@@ -7,3 +7,6 @@ export 'location/search/destination_controller.dart';
 export 'location/search/destination_page.dart';
 export 'location/search/destination_state.dart';
 export 'location/search/widgets/widgets.dart';
+// map
+export 'location/map/map_page.dart';
+export 'location/map/widgets/widgets.dart';

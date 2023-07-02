@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/core/core.dart';
-import 'package:gojek_clone/src/shared/extensions/extensions.dart';
+import 'package:gojek_clone/src/shared/shared.dart';
 
 class ProtectionCardSection extends StatelessWidget {
   const ProtectionCardSection({
