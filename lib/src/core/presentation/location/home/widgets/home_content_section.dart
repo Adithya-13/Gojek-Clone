@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/core/core.dart';
-import 'package:gojek_clone/src/shared/extensions/extensions.dart';
+import 'package:gojek_clone/src/shared/shared.dart';
 import 'package:gojek_clone/src/widgets/widgets.dart';
 
 class HomeContentSection extends StatelessWidget {

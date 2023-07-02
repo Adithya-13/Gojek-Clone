@@ -24,6 +24,21 @@ class $AssetsFontsGen {
   List<String> get values => [sFProItalic, sFPro];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/destination_marker.png
+  AssetGenImage get destinationMarker =>
+      const AssetGenImage('assets/images/destination_marker.png');
+
+  /// File path: assets/images/pickup_marker.png
+  AssetGenImage get pickupMarker =>
+      const AssetGenImage('assets/images/pickup_marker.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [destinationMarker, pickupMarker];
+}
+
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
@@ -38,6 +53,7 @@ class Assets {
   Assets._();
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
 }
 

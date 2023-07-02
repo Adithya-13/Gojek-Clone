@@ -1,4 +1,4 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_google_places_sdk/flutter_google_places_sdk.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,6 +14,6 @@ class LocationRepository {
 }
 
 final locationRepositoryProvider = Provider<LocationRepository>((ref) {
-  final googlePlace = FlutterGooglePlacesSdk(dotenv.get('MAP_API_KEY'));
+  final googlePlace = FlutterGooglePlacesSdk(FlutterConfig.get('MAP_API_KEY'));
   return LocationRepository(googlePlace);
 });
