@@ -14,6 +14,6 @@ class LocationRepository {
 }
 
 final locationRepositoryProvider = Provider<LocationRepository>((ref) {
-  final googlePlace = FlutterGooglePlacesSdk(dotenv.get("MAP_API_KEY"));
+  final googlePlace = FlutterGooglePlacesSdk(dotenv.get('MAP_API_KEY'));
   return LocationRepository(googlePlace);
 });

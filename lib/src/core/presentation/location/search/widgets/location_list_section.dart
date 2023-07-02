@@ -29,6 +29,7 @@ class LocationListSection extends ConsumerWidget {
               },
             ),
           );
-        });
+        },
+    );
   }
 }

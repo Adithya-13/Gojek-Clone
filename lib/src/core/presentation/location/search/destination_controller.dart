@@ -29,7 +29,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     });
   }
 
-  Future<void> search(String query) async {
+
+  void search(String query) async {
     state = state.copyWith(
       predictionListValue: const AsyncLoading(),
     );
@@ -76,8 +77,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     pickupController.dispose();
     destinationController.dispose();
     _debounce?.cancel();
-    destinationFocusNode.dispose();
     pickupFocusNode.dispose();
+    destinationFocusNode.dispose();
     super.dispose();
   }
 }
