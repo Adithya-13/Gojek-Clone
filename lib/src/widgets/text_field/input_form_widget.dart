@@ -17,7 +17,6 @@ class InputFormWidget extends StatelessWidget {
     required this.hintText,
     this.onChanged,
     this.errorText,
-    this.focusNode,
     this.validator,
   }) : super(key: key);
 
