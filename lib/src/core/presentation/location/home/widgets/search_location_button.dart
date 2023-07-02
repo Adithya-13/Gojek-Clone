@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/routes/routes.dart';
-import 'package:gojek_clone/src/shared/extensions/extensions.dart';
+import 'package:gojek_clone/src/shared/shared.dart';
 import 'package:gojek_clone/src/widgets/widgets.dart';
 
 class SearchLocationButton extends StatelessWidget {
