@@ -15,23 +15,21 @@ class LocationListSection extends ConsumerWidget {
     if (state.predictionList.isEmpty) {
       return const EmptyStateDestinationListSection();
     }
-
-    return Expanded(
-      child: AsyncValueWidget(
-          value: state.predictionListValue,
-          data: (predictions) {
-            return ListView.builder(
+    return AsyncValueWidget(
+        value: state.predictionListValue,
+        data: (predictions) {
+          return Expanded(
+            child: ListView.builder(
               itemCount: predictions.length,
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 final prediction = predictions[index];
-                return LocationCardWidget(
-                  prediction: prediction,
-                );
+                return LocationCardWidget(prediction: prediction);
               },
-            );
-          }),
+            ),
+          );
+        },
     );
   }
 }

@@ -18,19 +18,17 @@ class DestinationController extends StateNotifier<DestinationState> {
 
   Timer? _debounce;
 
-  void onChanged(String query) async {
+  void onChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () async {
+    _debounce = Timer(const Duration(milliseconds: 500), () {
       if (query.isEmpty) {
-        state.copyWith(
-          predictionListValue: const AsyncData([]),
-          predictionList: [],
-        );
+        reset();
         return;
       }
       search(query);
     });
   }
+
 
   void search(String query) async {
     state = state.copyWith(
@@ -38,8 +36,7 @@ class DestinationController extends StateNotifier<DestinationState> {
     );
 
     try {
-      final result = await locationService.locationRepository
-          .autoCompleteSearch(query: query);
+      final result = await locationService.autoCompleteSearch(query);
       state = state.copyWith(
         predictionList: result,
         predictionListValue: AsyncData(result),
@@ -51,21 +48,27 @@ class DestinationController extends StateNotifier<DestinationState> {
     }
   }
 
-  void onPredictionTapped(AutocompletePrediction prediction) {
+  void reset() {
+    state = state.copyWith(
+      predictionList: [],
+      predictionListValue: const AsyncData([]),
+    );
+  }
+
+  void onPredictionTap(AutocompletePrediction prediction) {
     if (pickupFocusNode.hasFocus) {
       state = state.copyWith(
         pickup: prediction,
-        predictionList: [],
-        predictionListValue: const AsyncData([]),
       );
       pickupController.text = prediction.primaryText;
+      reset();
+      destinationFocusNode.requestFocus();
     } else {
       state = state.copyWith(
         destination: prediction,
-        predictionList: [],
-        predictionListValue: const AsyncData([]),
       );
       destinationController.text = prediction.primaryText;
+      reset();
     }
   }
 

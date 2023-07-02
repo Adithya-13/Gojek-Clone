@@ -41,9 +41,7 @@ class DestinationFormSection extends ConsumerWidget {
                 height: 20,
               ),
               Gap.h4,
-              const CircleDotWidget(
-                withAnimation: true,
-              ),
+              const CircleDotWidget(withAnimation: true),
             ],
           ),
           Gap.w16,

@@ -17,7 +17,7 @@ class LocationCardWidget extends ConsumerWidget {
     final controller = ref.read(destinationControllerProvider.notifier);
     return GestureDetector(
       onTap: () {
-        controller.onPredictionTapped(prediction);
+        controller.onPredictionTap(prediction);
       },
       child: Container(
         padding: EdgeInsets.all(SizeApp.h16),

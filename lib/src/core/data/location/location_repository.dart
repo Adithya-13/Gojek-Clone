@@ -7,8 +7,7 @@ class LocationRepository {
 
   LocationRepository(this.googlePlace);
 
-  Future<List<AutocompletePrediction>> autoCompleteSearch(
-      {required String query}) async {
+  Future<List<AutocompletePrediction>> autoCompleteSearch(String query) async {
     final predictions = await googlePlace.findAutocompletePredictions(query);
     return predictions.predictions;
   }
