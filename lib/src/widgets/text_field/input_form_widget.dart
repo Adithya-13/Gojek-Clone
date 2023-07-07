@@ -18,6 +18,7 @@ class InputFormWidget extends StatelessWidget {
     this.onChanged,
     this.errorText,
     this.validator,
+    this.focusNode,
   }) : super(key: key);
 
   @override
