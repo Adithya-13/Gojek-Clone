@@ -2,6 +2,9 @@
 // home
 export 'location/home/home_page.dart';
 export 'location/home/widgets/widgets.dart';
+// map
+export 'location/map/map_page.dart';
+export 'location/map/widgets/widgets.dart';
 // search
 export 'location/search/destination_controller.dart';
 export 'location/search/destination_page.dart';

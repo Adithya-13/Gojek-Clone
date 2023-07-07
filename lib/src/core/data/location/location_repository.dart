@@ -12,6 +12,14 @@ class LocationRepository {
     final predictions = await googlePlace.findAutocompletePredictions(query);
     return predictions.predictions;
   }
+
+  Future<Place?> fetchPlace(String placeId) async {
+    final place = await googlePlace.fetchPlace(
+      placeId,
+      fields: PlaceField.values,
+    );
+    return place.place;
+  }
 }
 
 final locationRepositoryProvider = Provider<LocationRepository>((ref) {
