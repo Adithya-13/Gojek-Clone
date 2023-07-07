@@ -29,7 +29,6 @@ class DestinationController extends StateNotifier<DestinationState> {
     });
   }
 
-
   void search(String query) async {
     state = state.copyWith(
       predictionListValue: const AsyncLoading(),
@@ -55,17 +54,20 @@ class DestinationController extends StateNotifier<DestinationState> {
     );
   }
 
-  void onPredictionTap(AutocompletePrediction prediction) {
+  Future<void> onPredictionTap(AutocompletePrediction prediction) async {
+    final place = await locationService.fetchPlace(prediction.placeId);
     if (pickupFocusNode.hasFocus) {
       state = state.copyWith(
-        pickup: prediction,
+        pickup: place,
       );
       pickupController.text = prediction.primaryText;
       reset();
-      destinationFocusNode.requestFocus();
+      if (state.destination == null) {
+        destinationFocusNode.requestFocus();
+      }
     } else {
       state = state.copyWith(
-        destination: prediction,
+        destination: place,
       );
       destinationController.text = prediction.primaryText;
       reset();
