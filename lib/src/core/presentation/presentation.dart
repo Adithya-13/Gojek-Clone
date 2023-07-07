@@ -1,9 +1,13 @@
 //* LOCATION
 // home
+export 'location/home/home_controller.dart';
 export 'location/home/home_page.dart';
+export 'location/home/home_state.dart';
 export 'location/home/widgets/widgets.dart';
 // map
+export 'location/map/map_controller.dart';
 export 'location/map/map_page.dart';
+export 'location/map/map_state.dart';
 export 'location/map/widgets/widgets.dart';
 // search
 export 'location/search/destination_controller.dart';

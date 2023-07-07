@@ -3,11 +3,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_sdk/flutter_google_places_sdk.dart'
     as places;
-import 'package:gojek_clone/gen/assets.gen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gojek_clone/src/core/core.dart';
 import 'package:gojek_clone/src/shared/shared.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapPage extends StatefulWidget {
+class MapPage extends ConsumerStatefulWidget {
   final places.Place pickup;
   final places.Place destination;
   const MapPage({
@@ -17,55 +18,25 @@ class MapPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  ConsumerState<MapPage> createState() => _MapPageState();
 }
 
-class _MapPageState extends State<MapPage> {
-  late final CameraPosition _cameraPosition;
-
-  final Set<Marker> _markers = {};
+class _MapPageState extends ConsumerState<MapPage> {
+  MapController get controller => ref.read(mapControllerProvider.notifier);
+  MapState get state => ref.read(mapControllerProvider);
 
   @override
   void initState() {
-    _cameraPosition = CameraPosition(
-      target: LatLng(
+    controller.initCameraPosition(
+      LatLng(
         widget.pickup.latLng?.lat ?? 0,
         widget.pickup.latLng?.lng ?? 0,
       ),
-      zoom: 10,
     );
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      loadMarkers();
+      controller.loadMarkers(widget.pickup, widget.destination);
     });
     super.initState();
-  }
-
-  Future<void> loadMarkers() async {
-    final pickupIcon = BitmapDescriptor.fromBytes(
-      await MapUtils.getImages(Assets.images.pickupMarker.path, 80),
-    );
-    final destinationIcon = BitmapDescriptor.fromBytes(
-      await MapUtils.getImages(Assets.images.destinationMarker.path, 80),
-    );
-    _markers.addAll([
-      Marker(
-        markerId: const MarkerId('pickup'),
-        position: LatLng(
-          widget.pickup.latLng?.lat ?? 0,
-          widget.pickup.latLng?.lng ?? 0,
-        ),
-        icon: pickupIcon,
-      ),
-      Marker(
-        markerId: const MarkerId('destination'),
-        position: LatLng(
-          widget.destination.latLng?.lat ?? 0,
-          widget.destination.latLng?.lng ?? 0,
-        ),
-        icon: destinationIcon,
-      ),
-    ]);
-    setState(() {});
   }
 
   @override
@@ -90,14 +61,14 @@ class _MapPageState extends State<MapPage> {
                   () => controller.animateCamera(
                     CameraUpdate.newLatLngBounds(
                       MapUtils.boundsFromLatLngList(
-                          _markers.map((loc) => loc.position).toList()),
+                          state.markers.map((loc) => loc.position).toList()),
                       100,
                     ),
                   ),
                 );
               },
-              initialCameraPosition: _cameraPosition,
-              markers: _markers,
+              initialCameraPosition: controller.cameraPosition,
+              markers: state.markers,
             ),
           ),
         ],

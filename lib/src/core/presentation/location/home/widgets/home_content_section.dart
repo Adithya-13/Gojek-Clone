@@ -14,30 +14,38 @@ class HomeContentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: PaddingWidget(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Gap.h12,
-              Text(
-                'Gojek Clone - GoRide',
-                style: TypographyApp.headline1.white,
+        child: Column(
+          children: [
+            Gap.h12,
+            Text(
+              'Gojek Clone - GoRide',
+              style: TypographyApp.headline1.white,
+            ),
+            Gap.h12,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Gap.customGapHeight(
+                      context.screenHeightPercentage(0.12),
+                    ),
+                    Text(
+                      'Banyak bintang ya, Adithya',
+                      style: TypographyApp.headline1.white,
+                    ),
+                    Gap.h8,
+                    Text(
+                      'Kalo gak ada, berarti bintangnya di matamu.',
+                      style: TypographyApp.subText1.white,
+                    ),
+                    Gap.h20,
+                    const ProtectionCardSection(),
+                    Gap.h64,
+                  ],
+                ),
               ),
-              Gap.customGapHeight(
-                context.screenHeightPercentage(0.06),
-              ),
-              Text(
-                'Banyak bintang ya, Adithya',
-                style: TypographyApp.headline1.white,
-              ),
-              Gap.h8,
-              Text(
-                'Kalo gak ada, berarti bintangnya di matamu.',
-                style: TypographyApp.subText1.white,
-              ),
-              Gap.h20,
-              const ProtectionCardSection(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
