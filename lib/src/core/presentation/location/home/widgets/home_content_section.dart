@@ -13,17 +13,17 @@ class HomeContentSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: PaddingWidget(
-        child: Column(
-          children: [
-            Gap.h12,
-            Text(
-              'Gojek Clone - GoRide',
-              style: TypographyApp.headline1.white,
-            ),
-            Gap.h12,
-            Expanded(
-              child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Gap.h12,
+          Text(
+            'Gojek Clone - GoRide',
+            style: TypographyApp.headline1.white,
+          ),
+          Gap.h12,
+          Expanded(
+            child: SingleChildScrollView(
+              child: PaddingWidget(
                 child: Column(
                   children: [
                     Gap.customGapHeight(
@@ -45,8 +45,8 @@ class HomeContentSection extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
