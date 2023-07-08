@@ -3,6 +3,7 @@ import 'package:flutter_google_places_sdk/flutter_google_places_sdk.dart'
     as map;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:gojek_clone/gen/assets.gen.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/core/core.dart';
@@ -22,6 +23,7 @@ class MapController extends StateNotifier<MapState> {
 
     loadMarkers();
     _addPolyLine();
+    loadTransportations();
   }
 
   Future<void> loadMarkers() async {
@@ -92,6 +94,48 @@ class MapController extends StateNotifier<MapState> {
       );
     }
     _addPolyLine();
+  }
+
+  Future<void> getDistance() async {
+    final distanceInMeters = Geolocator.distanceBetween(
+      state.pickup!.latLng?.lat ?? 0,
+      state.pickup!.latLng?.lng ?? 0,
+      state.destination?.latLng?.lat ?? 0,
+      state.destination?.latLng?.lng ?? 0,
+    );
+
+    print(distanceInMeters);
+
+    state = state.copyWith(
+      distanceInMeters: distanceInMeters,
+    );
+  }
+
+  void loadTransportations() {
+    final tempTransportations = [
+      Transportation(
+        title: 'GoRide',
+        etaStart: 1,
+        etaEnd: 4,
+        pricePerMeters: 250,
+        totalPerson: 1,
+      ),
+      Transportation(
+        title: 'GoCar',
+        etaStart: 3,
+        etaEnd: 7,
+        pricePerMeters: 400,
+        totalPerson: 4,
+      ),
+      Transportation(
+        title: 'GoCar (L)',
+        etaStart: 3,
+        etaEnd: 7,
+        pricePerMeters: 450,
+        totalPerson: 6,
+      ),
+    ];
+    state = state.copyWith(transportations: tempTransportations);
   }
 }
 
