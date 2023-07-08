@@ -28,7 +28,7 @@ apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
 
 android {
     namespace "com.example.gojek_clone"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {

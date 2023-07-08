@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gojek_clone/gen/fonts.gen.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/routes/routes.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 void main() async {
   /// [INFO] Init hive local db
@@ -40,19 +41,21 @@ class MyApp extends ConsumerWidget {
         designSize: const Size(375, 812),
         minTextAdapt: true,
         builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            routerDelegate: router.routerDelegate,
-            routeInformationParser: router.routeInformationParser,
-            routeInformationProvider: router.routeInformationProvider,
-            title: 'Gojek Clone',
-            theme: _appTheme,
-            builder: (context, child) {
-              ErrorWidget.builder = (details) {
-                return CustomErrorWidget(errorDetails: details);
-              };
-              return child ?? const Scaffold();
-            },
+          return OverlaySupport.global(
+            child: MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              routerDelegate: router.routerDelegate,
+              routeInformationParser: router.routeInformationParser,
+              routeInformationProvider: router.routeInformationProvider,
+              title: 'Gojek Clone',
+              theme: _appTheme,
+              builder: (context, child) {
+                ErrorWidget.builder = (details) {
+                  return CustomErrorWidget(errorDetails: details);
+                };
+                return child ?? const Scaffold();
+              },
+            ),
           );
         },
       ),
