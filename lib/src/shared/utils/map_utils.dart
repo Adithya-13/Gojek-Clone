@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapUtils {
   static LatLngBounds boundsFromLatLngList(List<LatLng> list) {
+    print('TESSS onAnimateCamera ${list.length}');
     double? x0, x1, y0, y1;
     for (LatLng latLng in list) {
       if (x0 == null) {

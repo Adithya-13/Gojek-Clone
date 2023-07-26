@@ -48,7 +48,7 @@ dependencies:
   flutter_google_places_sdk: ^0.3.2+9
   overlay_support: ^2.1.0
   google_maps_flutter: ^2.3.1
-  flutter_config: ^2.0.0
+  flutter_config: ^2.0.2
   geolocator: ^9.0.2
   flutter_polyline_points: ^1.0.0
   intl: ^0.18.1

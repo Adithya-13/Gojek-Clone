@@ -38,6 +38,7 @@ class CurrentLocationMapSection extends ConsumerWidget {
           ),
           myLocationEnabled: true,
           myLocationButtonEnabled: false,
+          zoomControlsEnabled: false,
         ),
       ),
     );

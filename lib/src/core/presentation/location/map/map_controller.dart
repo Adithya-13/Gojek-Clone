@@ -15,13 +15,14 @@ class MapController extends StateNotifier<MapState> {
 
   PolylinePoints polylinePoints = PolylinePoints();
 
-  void init(map.Place pickup, map.Place destination) {
+  Future<void> init(map.Place pickup, map.Place destination) async {
+    print('TESSS onInit');
     state = state.copyWith(
       pickup: pickup,
       destination: destination,
     );
 
-    loadMarkers();
+    await loadMarkers();
     _addPolyLine();
     loadTransportations();
   }
