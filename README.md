@@ -8,7 +8,7 @@ This project is to knowing how to build a Flutter App with Maps Feature, our ref
 
 You can see the `pubspec.yaml` for all the packages that we use in this Project
 
-https://github.com/Adithya-13/Gojek-Clone/assets/62298956/e7d76825-3fb4-4351-977c-d3bcac572cdb
+https://github.com/Adithya-13/Gojek-Clone/assets/62298956/3b33d73d-32f2-461e-ba0e-a47269cfa81b
 
 Our feature in this app:
 - Home Page
@@ -35,5 +35,5 @@ A few resources to get you started:
 
 I put some Information to you guys, you can search `[INFO]` in Project, then it will show all of the information that help you.
 
-# Important!! don't forget to Setup some library and Map Services!!
+## Important!! don't forget to Setup some library and Map Services!!
 
