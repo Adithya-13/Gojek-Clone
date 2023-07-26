@@ -43,6 +43,8 @@ class _MapsSectionState extends ConsumerState<MapsSection> {
     super.initState();
   }
 
+  /// [INFO]
+  /// init camera position
   void initCameraPosition() {
     cameraPosition = CameraPosition(
       target: LatLng(
@@ -58,6 +60,8 @@ class _MapsSectionState extends ConsumerState<MapsSection> {
     ref.listen(mapControllerProvider, (previous, next) {
       if (previous?.markers != next.markers) {
         if (next.markers.isNotEmpty) {
+          /// [INFO]
+          /// when markers is done initialized, then animate the camera
           _animateCamera();
         }
       }
@@ -78,6 +82,8 @@ class _MapsSectionState extends ConsumerState<MapsSection> {
     );
   }
 
+  /// [INFO]
+  /// animate the camera and set bounds from markers, then call polyline and calculate distance
   Future<void> _animateCamera() async {
     final GoogleMapController mapController = await _mapController.future;
     await mapController.animateCamera(

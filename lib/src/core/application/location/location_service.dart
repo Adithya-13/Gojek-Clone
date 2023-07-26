@@ -7,10 +7,14 @@ class LocationService {
 
   LocationService(this.locationRepository);
 
+  /// [INFO]
+  /// To Get Autocomplete Places on [DestinationPage]
   Future<List<AutocompletePrediction>> autoCompleteSearch(
           {required String query}) =>
       locationRepository.autoCompleteSearch(query: query);
 
+  /// [INFO]
+  /// To Get the detail of the place from autocomplete
   Future<Place?> fetchPlace(String placeId) =>
       locationRepository.fetchPlace(placeId);
 }

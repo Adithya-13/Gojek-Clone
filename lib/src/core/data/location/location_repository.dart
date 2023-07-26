@@ -7,12 +7,16 @@ class LocationRepository {
 
   LocationRepository(this.googlePlace);
 
+  /// [INFO]
+  /// To Get Autocomplete Places on [DestinationPage]
   Future<List<AutocompletePrediction>> autoCompleteSearch(
       {required String query}) async {
     final predictions = await googlePlace.findAutocompletePredictions(query);
     return predictions.predictions;
   }
 
+  /// [INFO]
+  /// To Get the detail of the place from autocomplete
   Future<Place?> fetchPlace(String placeId) async {
     final place = await googlePlace.fetchPlace(
       placeId,

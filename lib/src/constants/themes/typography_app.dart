@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gojek_clone/gen/fonts.gen.dart';
 import 'package:gojek_clone/src/constants/constants.dart';
 
+/// [INFO]
+/// All of the Typography in your App
 class TypographyApp {
   static TextStyle headline1 = TextStyle(
     fontFamily: FontFamily.sFPro,

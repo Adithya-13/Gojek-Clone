@@ -8,6 +8,8 @@ class HomeController extends StateNotifier<HomeState> {
     determinePosition();
   }
 
+  /// [INFO]
+  /// to get the current position
   void determinePosition() async {
     state = state.copyWith(isLoading: true);
 

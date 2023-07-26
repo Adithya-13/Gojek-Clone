@@ -19,6 +19,9 @@ class DestinationController extends StateNotifier<DestinationState> {
   Timer? _debounce;
 
   void onChanged(String query) {
+    /// [INFO]
+    /// to give the delay time, so when TextField onChanged,
+    /// it will not trigger the search() function, it will trigger after the delay
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () {
       if (query.isEmpty) {
@@ -29,6 +32,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     });
   }
 
+  /// [INFO]
+  /// search places with autocompleteSearch
   void search(String query) async {
     state = state.copyWith(
       predictionListValue: const AsyncLoading(),
@@ -47,6 +52,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     }
   }
 
+  /// [INFO]
+  /// how to reset the autocomplete List
   void reset() {
     state = state.copyWith(
       predictionList: [],
@@ -54,6 +61,8 @@ class DestinationController extends StateNotifier<DestinationState> {
     );
   }
 
+  /// [INFO]
+  /// when autocomplete tapped, it will set the pickup or destination state
   Future<void> onPredictionTap(AutocompletePrediction prediction) async {
     final place = await locationService.fetchPlace(prediction.placeId);
     if (pickupFocusNode.hasFocus) {

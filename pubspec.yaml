@@ -35,22 +35,29 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # for state management
   flutter_riverpod: ^2.0.0
+  # for handling route
   go_router: ^8.0.1
-  cached_network_image: ^3.2.1
-  hive_flutter: ^1.1.0
-  equatable: ^2.0.5
+  # for make the screen size consistent
   flutter_screenutil: ^5.7.0
-  flutter_launcher_icons: ^0.12.0
+  # for showing svg image
   flutter_svg: ^1.1.6
-  collection: ^1.16.0
+  # for showing ripple animation
   simple_ripple_animation: ^0.0.7
+  # for searching places
   flutter_google_places_sdk: ^0.3.2+9
+  # for showing toast
   overlay_support: ^2.1.0
+  # for showing maps
   google_maps_flutter: ^2.3.1
+  # for using .env
   flutter_config: ^2.0.2
+  # for get current location
   geolocator: ^9.0.2
+  # for get polyline on maps
   flutter_polyline_points: ^1.0.0
+  # for get NumberFormat
   intl: ^0.18.1
 
 dev_dependencies:
@@ -65,6 +72,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_gen: ^5.3.0
 
+# for generate assets
 flutter_gen:
   integrations:
     flutter_svg: true
@@ -103,6 +111,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  # for using custom font
   fonts:
     - family: SF-Pro
       fonts:

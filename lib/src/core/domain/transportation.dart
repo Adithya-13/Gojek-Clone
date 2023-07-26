@@ -1,3 +1,5 @@
+/// [INFO]
+/// For transportation List on [MapPage]
 class Transportation {
   final String title;
   final double etaStart;

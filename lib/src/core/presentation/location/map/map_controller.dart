@@ -15,6 +15,8 @@ class MapController extends StateNotifier<MapState> {
 
   PolylinePoints polylinePoints = PolylinePoints();
 
+  /// [INFO]
+  /// init the markers, polyline, and transportations
   Future<void> init(map.Place pickup, map.Place destination) async {
     print('TESSS onInit');
     state = state.copyWith(
@@ -27,13 +29,20 @@ class MapController extends StateNotifier<MapState> {
     loadTransportations();
   }
 
+  /// [INFO]
+  /// load the markers
   Future<void> loadMarkers() async {
+    /// [INFO]
+    /// get the image from assets
     final pickupIcon = BitmapDescriptor.fromBytes(
       await MapUtils.getImages(Assets.images.pickupMarker.path, 80),
     );
     final destinationIcon = BitmapDescriptor.fromBytes(
       await MapUtils.getImages(Assets.images.destinationMarker.path, 80),
     );
+
+    /// [INFO]
+    /// set the markers into state
     state = state.copyWith(
       markers: {
         Marker(
@@ -56,6 +65,8 @@ class MapController extends StateNotifier<MapState> {
     );
   }
 
+  /// [INFO]
+  /// styling the polylines
   void _addPolyLine() {
     PolylineId id = const PolylineId("poly");
     Polyline polyline = Polyline(
@@ -72,7 +83,11 @@ class MapController extends StateNotifier<MapState> {
     state = state.copyWith(polylines: tempPolylines);
   }
 
+  /// [INFO]
+  /// add polyline between markers
   void getPolyline() async {
+    /// [INFO]
+    /// getting Polyline from 2 Markers
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
       FlutterConfig.get("MAP_API_KEY"),
       PointLatLng(
@@ -85,6 +100,9 @@ class MapController extends StateNotifier<MapState> {
       ),
       travelMode: TravelMode.driving,
     );
+
+    /// [INFO]
+    /// if there's any, set it into polyllineCoordinates that can be used in [_addPolyLine()]
     if (result.points.isNotEmpty) {
       final tempPolylineCoordinates = <LatLng>[];
       for (var point in result.points) {
@@ -97,6 +115,8 @@ class MapController extends StateNotifier<MapState> {
     _addPolyLine();
   }
 
+  /// [INFO]
+  /// how to get the distance for pricing
   Future<void> getDistance() async {
     final distanceInMeters = Geolocator.distanceBetween(
       state.pickup!.latLng?.lat ?? 0,
@@ -112,6 +132,8 @@ class MapController extends StateNotifier<MapState> {
     );
   }
 
+  /// [INFO]
+  /// all of the transportation and price per meters
   void loadTransportations() {
     final tempTransportations = [
       Transportation(

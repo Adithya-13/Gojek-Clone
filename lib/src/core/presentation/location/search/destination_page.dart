@@ -11,7 +11,9 @@ class DestinationPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    
+    /// [INFO]
+    /// when both pickup and destination is filled by place, it will automatically
+    /// navigate into map page
     ref.listen(destinationControllerProvider, (previous, next) {
       if (previous?.pickup != next.pickup ||
           previous?.destination != next.destination) {

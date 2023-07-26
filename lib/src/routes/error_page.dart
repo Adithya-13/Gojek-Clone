@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// [INFO]
+/// Show this error when there's an error on navigation
 class ErrorPage extends StatelessWidget {
   final Exception? error;
 

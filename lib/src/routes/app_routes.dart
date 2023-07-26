@@ -6,6 +6,8 @@ import 'package:gojek_clone/src/constants/constants.dart';
 import 'package:gojek_clone/src/core/core.dart';
 import 'package:gojek_clone/src/routes/routes.dart';
 
+/// [INFO]
+/// All of the Routes of this App
 enum Routes {
   home,
   destination,

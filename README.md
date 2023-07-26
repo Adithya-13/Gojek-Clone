@@ -1,17 +1,37 @@
-# gojek_clone
+# Gojek Clone
 
-A new Flutter project.
+Flutter AEJ Bootcamp Gojek Clone Go-Ride Feature
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is to knowing how to build a Flutter App with Maps Feature, our references are based on this [article](https://medium.com/@rizal_hilman/bermain-google-maps-api-android-kuy-bikin-aplikasi-kayak-go-jek-belajarapi-20b004d6abdf), but this is the Android Native version, you can watch [this playlist on Youtube](https://www.youtube.com/playlist?list=PLy9JCsy2u97l8vY42NaXwsA_Y_LJXJyp6) for the reference in Flutter. And we are using the real Gojek UI for this project that you can see the Figma Project in [here](https://www.figma.com/file/SFSq6aURJMq6OBmJvMnLZJ/Flutter-Lesson%3A-Gojek-UI-Home-Screen-(Community)-(Copy)?type=design&node-id=0%3A1&mode=design&t=7BcMxO15RUUvcTJe-1)
 
-A few resources to get you started if this is your first Flutter project:
+You can see the `pubspec.yaml` for all the packages that we use in this Project
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Our feature in this app:
+- Home Page
+    - Get Current Location
+    - Search Location Button
+    - Saved Address UI
+- Search Page
+    - Set the Pickup and Destination Place
+    - Autocomplete Google Maps Places
+    - Saved Address UI List
+    - Ripple Animation Effect for Destination Place Field
+- Map Page
+    - Google Maps with Custom Marker
+    - Polyline between the Markers
+    - Show Price for GoRide, GoCar and GoCar (L)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Gojek-Clone
+A few resources to get you started:
+
+- [How to Load ENV on Native Code with flutter_config](https://stackoverflow.com/a/65448051/13505429)
+- [How to Set Bounds when resize Maps Camera](https://github.com/MuthuHere/GoogleMapFlutterSetBounds/blob/main/README.md)
+- [How to Add Custom Markers on Flutter](https://www.geeksforgeeks.org/how-to-add-custom-markers-on-google-maps-in-flutter/)
+- [Flutter Uber Tutorial](https://www.youtube.com/playlist?list=PLy9JCsy2u97l8vY42NaXwsA_Y_LJXJyp6)
+- [Gojek Figma](https://www.figma.com/file/SFSq6aURJMq6OBmJvMnLZJ/Flutter-Lesson%3A-Gojek-UI-Home-Screen-(Community)-(Copy)?type=design&node-id=0%3A1&mode=design&t=7BcMxO15RUUvcTJe-1)
+
+I put some Information to you guys, you can search `[INFO]` in Project, then it will show all of the information that help you.
+
+# Important!! don't forget to Setup some library and Map Services!!
+

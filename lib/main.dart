@@ -63,6 +63,8 @@ class MyApp extends ConsumerWidget {
   }
 }
 
+/// [INFO]
+/// Show this Widget when something error happens
 class CustomErrorWidget extends StatelessWidget {
   final FlutterErrorDetails errorDetails;
 
@@ -78,11 +80,13 @@ class CustomErrorWidget extends StatelessWidget {
       margin: EdgeInsets.zero,
       child: Padding(
         padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Something is not right here...",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+        child: Center(
+          child: Text(
+            "Something is not right here...",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),

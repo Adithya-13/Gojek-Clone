@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapUtils {
+  /// [INFO]
+  /// How to get bounds from LatLng Markers
   static LatLngBounds boundsFromLatLngList(List<LatLng> list) {
     print('TESSS onAnimateCamera ${list.length}');
     double? x0, x1, y0, y1;
@@ -22,6 +24,8 @@ class MapUtils {
         northeast: LatLng(x1!, y1!), southwest: LatLng(x0!, y0!));
   }
 
+  /// [INFO]
+  /// How to get images from assets/images and return it as a Uint8List
   static Future<Uint8List> getImages(String path, int width) async {
     ByteData data = await rootBundle.load(path);
     ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
